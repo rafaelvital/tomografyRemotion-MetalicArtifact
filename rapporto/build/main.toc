@@ -1,0 +1,31 @@
+\select@language {english}
+\contentsline {chapter}{\numberline {1}Theory}{4}
+\contentsline {section}{\numberline {1.1}Image}{4}
+\contentsline {section}{\numberline {1.2}Radon transform}{4}
+\contentsline {section}{\numberline {1.3}The Computed Tomography}{8}
+\contentsline {subsection}{\numberline {1.3.1}Problems}{9}
+\contentsline {section}{\numberline {1.4}Metal Artifact Reduction}{10}
+\contentsline {subsection}{\numberline {1.4.1}Interpolation Methods}{11}
+\contentsline {subsection}{\numberline {1.4.2}Linear}{11}
+\contentsline {subsection}{\numberline {1.4.3}Method of Bertalmio at el}{11}
+\contentsline {subsubsection}{Analogy between fluid and image}{12}
+\contentsline {subsection}{\numberline {1.4.4}Fusion Method}{13}
+\contentsline {chapter}{\numberline {2}Algorithm}{15}
+\contentsline {section}{\numberline {2.1}Structure of a interpolation method}{15}
+\contentsline {section}{\numberline {2.2}Segmentation}{15}
+\contentsline {section}{\numberline {2.3}Radon Transform}{16}
+\contentsline {section}{\numberline {2.4}Linear interpolating}{16}
+\contentsline {section}{\numberline {2.5}Bertalmio et al. interpolating}{17}
+\contentsline {section}{\numberline {2.6}Inverting the sinogram}{20}
+\contentsline {chapter}{\numberline {3}Result}{21}
+\contentsline {section}{\numberline {3.1}Generating the artifacts}{21}
+\contentsline {section}{\numberline {3.2}Evaluation Procedure}{22}
+\contentsline {section}{\numberline {3.3}Bertalmio at el.}{24}
+\contentsline {subsection}{\numberline {3.3.1}Parameter Dil}{25}
+\contentsline {subsection}{\numberline {3.3.2}Parameter K}{26}
+\contentsline {subsection}{\numberline {3.3.3}Linear x Bertalmio}{26}
+\contentsline {section}{\numberline {3.4}Fusion}{27}
+\contentsline {subsection}{\numberline {3.4.1}Parameter t}{28}
+\contentsline {subsection}{\numberline {3.4.2}Parameter n}{28}
+\contentsline {subsection}{\numberline {3.4.3}Combination Method}{30}
+\contentsline {section}{\numberline {3.5}Final analysis}{31}

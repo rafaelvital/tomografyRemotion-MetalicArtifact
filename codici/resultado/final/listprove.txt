@@ -1,0 +1,190 @@
+Prove 2 
+ Lin Lin 10  20 10 0.45 20 0.3 
+Prove 3 
+ Lin Lin 10  20 10 0.45 20 0.5 
+Prove 4 
+ Lin Lin 10  20 10 0.45 20 0.7 
+Prove 5 
+ Lin Lin 10  20 10 0.45 14 0.3 
+Prove 6 
+ Lin Lin 10  20 10 0.45 14 0.5 
+Prove 7 
+ Lin Lin 10  20 10 0.45 14 0.7 
+Prove 8 
+ Lin Lin 10  20 10 0.45 17 0.3 
+Prove 9 
+ Lin Lin 10  20 10 0.45 17 0.5 
+Prove 10 
+ Lin Lin 10  20 10 0.45 17 0.7 
+Prove 11 
+ Lin Lin 10  20 10 0.45 23 0.3 
+Prove 12 
+ Lin Lin 10  20 10 0.45 23 0.5 
+Prove 13 
+ Lin Lin 10  20 10 0.45 23 0.7 
+Prove 14 
+ Lin Lin 10  20 10 0.45 26 0.3 
+Prove 15 
+ Lin Lin 10  20 10 0.45 26 0.5 
+Prove 16 
+ Lin Lin 10  20 10 0.45 26 0.7 
+Prove 17 
+ NS NS 10  20 10 0.45 14 0.3 
+Prove 18 
+ NS NS 10  20 10 0.45 14 0.5 
+Prove 19 
+ NS NS 10  20 10 0.45 14 0.7 
+Prove 20 
+ NS NS 10  20 10 0.45 17 0.3 
+Prove 21 
+ NS NS 10  20 10 0.45 17 0.5 
+Prove 22 
+ NS NS 10  20 10 0.45 17 0.7 
+Prove 23 
+ NS NS 10  20 10 0.45 20 0.3 
+Prove 24 
+ NS NS 10  20 10 0.45 20 0.5 
+Prove 25 
+ NS NS 10  20 10 0.45 20 0.7 
+Prove 26 
+ NS NS 10  20 10 0.45 23 0.3 
+Prove 27 
+ NS NS 10  20 10 0.45 23 0.5 
+Prove 28 
+ NS NS 10  20 10 0.45 23 0.7 
+Prove 29 
+ NS NS 10  20 10 0.45 26 0.3 
+Prove 30 
+ NS NS 10  20 10 0.45 26 0.5 
+Prove 31 
+ NS NS 10  20 10 0.45 26 0.7 
+Prove 32 
+ Lin NS 10  20 10 0.45 14 0.3 
+Prove 33 
+ Lin NS 10  20 10 0.45 14 0.5 
+Prove 34 
+ Lin NS 10  20 10 0.45 14 0.7 
+Prove 35 
+ Lin NS 10  20 10 0.45 17 0.3 
+Prove 36 
+ Lin NS 10  20 10 0.45 17 0.5 
+Prove 37 
+ Lin NS 10  20 10 0.45 17 0.7 
+Prove 38 
+ Lin NS 10  20 10 0.45 20 0.3 
+Prove 39 
+ Lin NS 10  20 10 0.45 20 0.5 
+Prove 40 
+ Lin NS 10  20 10 0.45 20 0.7 
+Prove 41 
+ Lin NS 10  20 10 0.45 23 0.3 
+Prove 42 
+ Lin NS 10  20 10 0.45 23 0.5 
+Prove 43 
+ Lin NS 10  20 10 0.45 23 0.7 
+Prove 44 
+ Lin NS 10  20 10 0.45 26 0.3 
+Prove 45 
+ Lin NS 10  20 10 0.45 26 0.5 
+Prove 46 
+ Lin NS 10  20 10 0.45 26 0.7 
+Prove 47 
+ NS Lin 10  20 10 0.45 20 0.3 
+Prove 48 
+ NS Lin 10  20 10 0.45 20 0.5 
+Prove 49 
+ NS Lin 10  20 10 0.45 20 0.7 
+Prove 50 
+ Lin NS 6  10 10 0.45 20 0.5 
+Prove 51 
+ Lin NS 6  20 10 0.45 20 0.5 
+Prove 52 
+ Lin NS 6  40 10 0.45 20 0.5 
+Prove 53 
+ Lin NS 10  10 10 0.45 20 0.5 
+Prove 54 
+ Lin NS 10  20 10 0.45 20 0.5 
+Prove 55 
+ Lin NS 10  40 10 0.45 20 0.5 
+Prove 56 
+ Lin NS 14  10 10 0.45 20 0.5 
+Prove 57 
+ Lin NS 14  20 10 0.45 20 0.5 
+Prove 58 
+ Lin NS 14  40 10 0.45 20 0.5 
+Prove 59 
+ Lin NS 6  0.01 10 0.45 20 0.5 
+Prove 60 
+ Lin NS 6  0.1 10 0.45 20 0.5 
+Prove 61 
+ Lin NS 6  1 10 0.45 20 0.5 
+Prove 62
+ Lin NS 8  0.1 10 0.45 20 0.5
+Prove 63
+ Lin NS 4  0.1 10 0.45 20 0.5 
+Prove 64 
+ Lin NS 8  100 10 0.45 20 0.5 
+Prove 65 
+ Lin NS 8  1000 10 0.45 20 0.5 
+Prove 66 
+ NS Lin2 8  100 10 0.45 20 0.5 
+Prove 67 
+ NS Lin2 8  100 10 0.45 20 0.5 
+Prove 68 
+ NS Lin3 8  100 10 0.45 20 0.5 
+Prove 69 
+ Lin nulla 8  10 10 0.45 20 0.5 
+Prove 70 
+ NS nulla 4  1 10 0.45 20 0.5 552.271
+Prove 71 
+ NS nulla 8  1 10 0.45 20 0.5 523.803
+Prove 72 
+ NS nulla 12  1 10 0.45 20 0.5 717.894
+Prove 73 
+ NS nulla 4  10 10 0.45 20 0.5 439.164
+Prove 74 
+ NS nulla 8  10 10 0.45 20 0.5 505.369
+Prove 75 
+ NS nulla 12  10 10 0.45 20 0.5 708.991
+Prove 76 
+ NS nulla 4  100 10 0.45 20 0.5 437.987
+Prove 77 
+ NS nulla 8  100 10 0.45 20 0.5 503.405
+Prove 78 
+ NS nulla 12  100 10 0.45 20 0.5 717.477
+Prove 79 
+ NS nulla 8  0.001 10 0.45 20 0.5 796.794
+Prove 80 
+ NS nulla 8  0.01 10 0.45 20 0.5 1031.52
+Prove 81 
+ NS nulla 8  0.1 10 0.45 20 0.5 637.151
+Prove 82 
+ NS nulla 8  1000 10 0.45 20 0.5 504.979
+Prove 83 
+ NS nulla 8  10000 10 0.45 20 0.5 502.955
+Prove 84 
+ Lin2 nulla 8  10 10 0.45 20 0.5
+Prove 85 
+ Lin Lin 8  10 1 0.15 20 0.5
+Prove 86 
+ Lin Lin 8  10 1 0.45 20 0.5
+Prove 87 
+ Lin Lin 8  10 1 0.75 20 0.5
+Prove 88 
+ Lin Lin 8  10 5 0.15 20 0.5
+Prove 89 
+ Lin Lin 8  10 5 0.45 20 0.5
+Prove 90 
+ Lin Lin 8  10 5 0.75 20 0.5
+Prove 91 
+ Lin Lin 8  10 10 0.15 20 0.5
+Prove 92 
+ Lin Lin 8  10 10 0.45 20 0.5
+Prove 93 
+ Lin Lin 8  10 10 0.75 20 0.5
+Prove 94 
+ Lin Lin 8  10 20 0.15 20 0.5
+Prove 95 
+ Lin Lin 8  10 20 0.45 20 0.5
+Prove 96 
+ Lin Lin 8  10 20 0.75 20 0.5 

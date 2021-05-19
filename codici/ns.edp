@@ -1,0 +1,189 @@
+// coefficiente di diffusione
+//real k=15; //per phantom
+//real k=0.05; // per H125
+//real k=0.01; // per H155
+//real k=100;
+
+//nota bene ni dobbiamo definire anche una mesh dell'immagine intera dove sn definiti i dti che passiamo da matlab
+//load "Element_P3"
+verbosity=0;
+//def mesh immagine intera
+int m,n;
+{
+	ifstream file("temp/imginfo.txt");
+	file>>m;
+	file>>n;
+}
+mesh Thsq=square(n-1,m-1,[1+(n-1)*x,1+(m-1)*y]); 
+// mettiamo la parametrizzazione per il meshing così in quanto vogliamo che ci sia un vertice per ogni pixel
+cout << "\nsize immagine="+n+"x"+m+"\n";
+
+//def mesh impainting
+mesh Th = readmesh("temp/griglia.msh");
+cout << "lettura mesh ok, numero di vertici="+Th.nv+"\n";
+//plot(Th, wait=1);
+
+//def spazi 
+// spazio salla mesh di impainting
+fespace Vh(Th, [P1b,P1b],periodic=[[3,y],[4,y]]); 
+fespace Mh(Th,P1);
+
+Vh [uh1old,uh2old],[uh1,uh2],[erru1,erru2];;
+Mh ph,phold,errp;
+[uh1old,uh2old]=[0,0];
+
+// spazio salla mesh immagine
+fespace Vhsq(Thsq,P1);
+Vhsq Iorig,I,Ix,Iy;
+real k;
+
+{ifstream file("temp/realrcolor");file >> Iorig[];}
+{ifstream file("temp/rcolor");file >> I[];}
+{ifstream file("temp/Rx");file >> Ix[];}
+{ifstream file("temp/Ry");file >> Iy[];}
+{ifstream file("temp/k");file >> k;}
+
+
+
+//
+real 	normp,normu,normuu,normu0,normp0,err;
+
+real eps=1;
+
+real nu=0.5;
+//forme variazionali
+varf a([u1,u2],[v1,v2])=
+	int2d(Th)((dx(u1)*dx(v1)+dy(u1)*dy(v1)+dx(u2)*dx(v2)+dy(u2)*dy(v2)))
+	+on(2,u1=-Iy,u2=Ix)
+	+on(1,u1=-Iy,u2=Ix);
+	
+varf b([u1,u2],[p])=-int2d(Th)(p*(dx(u1)+dy(u2)));
+varf c([u1,u2],[v1,v2])=
+	int2d(Th)((1/eps)*(v1*(uh1old*dx(u1)+uh2old*dy(u1))+v2*(uh1old*dx(u2)+uh2old*dy(u2))));
+
+varf mp(p,q)=int2d(Th)(p*q);
+matrix A=a(Vh,Vh);
+matrix B=b(Vh,Mh);
+matrix C;
+matrix M=mp(Mh,Mh);
+matrix NN; 
+NN=A;
+set(NN,solver=UMFPACK);
+matrix P=(1/nu)*M;
+set(P,solver=UMFPACK);
+
+real[int] F(Vh.ndof),xx1(Vh.ndof),xx2(Vh.ndof),xx3(Mh.ndof),xx4(Mh.ndof);
+F=a(0,Vh);
+
+func real[int] resid(real[int] &xx){
+		xx1=B'*xx;
+		xx2=(NN^(-1))*xx1;
+		xx3=B*xx2;
+		return xx3;
+}
+
+real[int] diagMp(Mh.ndof);
+diagMp = M.diag;
+func real[int] residP(real[int] &xx){
+        xx3 = xx ./ diagMp;
+	//	xx3=(P^(-1))*xx;
+		return xx3;
+
+}
+err=3;
+int i=0;
+real toll=1.e-4;
+int maxiter = 20;
+real normau;    
+while(i<=maxiter & err>=toll ){
+
+	C=c(Vh,Vh);
+		if(i>=1){
+            nu=eps/(1+(sqrt((uh1old^2+uh2old^2))/k));
+			NN=(nu*A)+C; //al primo step risolve un problema di stokes
+        
+}
+	set(NN,solver=UMFPACK);
+	xx2=(NN^(-1))*F;
+	xx4=B*xx2; //pressurizza il dato F
+	LinearGMRES(resid,ph[],xx4, eps=1.e-4, nbiter=100,precon=residP);
+	xx1=B'*ph[];
+	xx1=xx1-F;
+	uh1[]=(NN^(-1))*xx1; 
+	cout << "====================================\n";
+	cout << "====================================\n";
+	cout << "iterazione n =  " << i << endl;
+	cout << "====================================\n";
+	cout << "====================================\n";
+	///////
+	if (i==0){
+		normu0 = int2d(Th)(dx(uh1)*dx(uh1) + dy(uh1)*dy(uh1) +
+		               dx(uh2)*dx(uh2) + dy(uh2)*dy(uh2) +
+		              (uh1)*(uh1)+ (uh2)*(uh2));
+		normp0 = int2d(Th)((ph)*(ph));
+	}
+	// calcolo incremento in norma per test tolleranza
+		[erru1,erru2] = [uh1-uh1old, uh2-uh2old];
+		errp=ph-phold;
+		normu = int2d(Th)(dx(erru1)*dx(erru1) + dy(erru1)*dy(erru1) +
+				          dx(erru2)*dx(erru2) + dy(erru2)*dy(erru2) +
+				          (erru1)*(erru1)+ (erru2)*(erru2));
+		normp = int2d(Th)((errp)*(errp));
+		
+		normuu= int2d(Th)(dx(uh1)*dx(uh1) + dy(uh1)*dy(uh1) +
+				          dx(uh2)*dx(uh2) + dy(uh2)*dy(uh2) +
+				          (uh1)*(uh1)+ (uh2)*(uh2));
+
+		cout << "      velocity increment: " << sqrt(normu)/sqrt(normu0) << endl;
+		cout << "      pressure increment: " << sqrt(normp)/sqrt(normp0) << endl;
+    
+	
+	cout << "      nu: " <<  nu << endl;
+    cout << "     k: " << k << endl;
+		cout << "     re*: " << sqrt(normuu)/nu  << endl;
+
+	
+
+		//err=sqrt(normu)/sqrt(normu0)+sqrt(normp)/sqrt(normp0);
+		err=sqrt(normu)/sqrt(normu0);
+
+	/////////////////////	
+	i++;
+	//plot([uh1,uh2]);
+	[uh1old,uh2old]=[uh1,uh2];
+	phold=ph;
+
+    if(sqrt(normu)/sqrt(normu0) > 10)
+        break;
+
+}
+// passiamo al problema finale di intensità immagine
+	fespace Yh(Th,P2,periodic=[[3,y],[4,y]]);
+	Yh phi, psi, rotV;
+	
+rotV=dx(uh2)-dy(uh1);
+
+
+
+problem vort(psi,phi) =  //lap(I)=rot(v) 
+	int2d(Th)(dx(psi)*dx(phi)+dy(psi)*dy(phi))
+	-int2d(Th)(rotV*phi)
+	//-int1d(Th,1)(N.x*dx(psi)+N.y*dy(psi))
+	+on(2,psi=Iorig)
+	+on(1,psi=Iorig);
+	
+vort;
+real[int] iso(26);
+for (int i=0; i<26; i++) iso(i)=i*10;
+//plot(psi,value=1,viso=iso,wait=1,fill=1);
+////////////////////////////////////////
+Mh imm;
+Vhsq IMM;
+imm=psi;
+//interpolo
+matrix ToBig = interpolate(Mh,Vhsq,inside=1,t=1);
+IMM[] = ToBig*imm[];
+{ofstream fR("temp/inpaintedR");fR << IMM[];}
+cout << "\nFINITO!\n";
+
+	
